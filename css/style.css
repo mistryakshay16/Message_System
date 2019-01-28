@@ -60,6 +60,15 @@
     text-decoration: underline;
   }
 
+  .heading{
+      text-align: center;
+      font-family: cursive;
+      text-decoration: underline;
+  }
+  .card-body{
+      border: 2px solid black;
+  }
+
 html {
   font-family: sans-serif;
   line-height: 1.15;

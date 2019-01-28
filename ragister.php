@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
    $USR_NAME = $_POST['USR_NAME'];
    $EMAIL = $_POST['EMAIL'];
    $PASSWORD = $_POST['PASSWORD'];
-   $query=mysqli_query($conn,"call register('$USR_ID','$FST_NAME','$LST_NAME','$GENDER','$USR_NAME','$EMAIL','$PASSWORD')");
+  $query=mysqli_query($conn,"call register('$USR_ID','$FST_NAME','$LST_NAME','$GENDER','$USR_NAME','$EMAIL','$PASSWORD')");
   
   if($query)
   {  
@@ -27,18 +27,7 @@ if (isset($_POST['submit'])) {
 <head>
     <title>Registration Form</title>
     <link href="css/style.css" rel="stylesheet">
-    <style>
-        .heading{
-            text-align: center;
-            font-family: cursive;
-            text-decoration: underline;
-        }
-        .card-body{
-            border: 2px solid black;
-        }
-    </style>
 </head>
-
 <body class="app flex-row align-items-center">
     <div class="container container-fluid">
         <div class="row justify-content-center">
@@ -61,11 +50,11 @@ if (isset($_POST['submit'])) {
                                 <label class="col-md-3 col-sm-12 col-form-label">Gender:</label>
                                 <div class="col-md-9 col-form-label">
                                     <div class="form-check form-check-inline mr-1">
-                                        <input class="form-check-input" type="radio" value="Male" name="GENDER" checked>
+                                        <input class="form-check-input" type="radio" value="Male" name="GENDER" id="gender" checked>
                                         <label class="form-check-label" for="male">Male</label>
                                     </div>
                                     <div class="form-check form-check-inline mr-1">
-                                        <input class="form-check-input" type="radio" value="Female" name="GENDER">
+                                        <input class="form-check-input" type="radio" value="Female" name="GENDER" id="gender_1">
                                         <label class="form-check-label" for="female">Female</label>
                                     </div>
                                 </div>
@@ -89,5 +78,48 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
     </div>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/jquery.validate.js" type="text/javascript"></script>
+    <script src="js/additional-methods.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#RegistrationForm').validate({
+                    rules: {
+                    USR_ID: {
+                        required: true,
+                        maxlength: 6
+                    }, 
+                    FST_NAME: {
+                        required: true
+                    },
+                    LST_NAME: {
+                        required: true
+                    },
+                    GENDER: {
+                        required: true
+                    },
+                    USR_NAME: {
+                        required: true,
+                        maxlength: 10
+                    },
+                    EMAIL: {
+                        required: true,
+                        email: true
+                    },
+                    PASSWORD: {
+                        required: true,
+                        maxlength: 8,
+                        minlength: 6
+                    },
+                    Confirm_password: {
+                        required: true,
+                        maxlength: 8,
+                        minlength: 6,
+                        equalTo: "#password"
+                    }
+                }
+            });
+        });
+    </script>
 </body>   
 </html>

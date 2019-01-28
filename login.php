@@ -1,7 +1,31 @@
+<?php
+include('connection.php');
+if(isset($_POST['login']))
+{
+  $email=$_POST['email'];
+  $password=$_POST['password'];
+  $query=mysqli_query($conn,"call login('$email','$password')");
+	$result = $query;
+	if ($result->num_rows > 0)
+	{
+		while($row = $result->fetch_assoc())
+		{
+			if(($row['EMAIL']==$email) && ($row['PASSWORD']==$password))
+			{
+				header("location: index.php");
+
+			}
+		}		 
+	}
+	else {
+		echo "<script type='text/javascript'>alert('Invalid Credentials.')</script>";
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title></title>
+	<title>Message System-Login</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<link href="css/style.css" rel="stylesheet">

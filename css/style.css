@@ -50,6 +50,16 @@
   box-sizing: border-box;
 }
 
+.bd{
+      border: 2px solid black; 
+  }
+
+.center{
+    text-align: center;
+    font-family: cursive;
+    text-decoration: underline;
+  }
+
 html {
   font-family: sans-serif;
   line-height: 1.15;

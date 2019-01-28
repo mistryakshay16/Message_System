@@ -5,19 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<link href="css/style.css" rel="stylesheet">
-	<link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
-	<style type="text/css">
-	.bd{
-    	border: 2px solid black; 
-	}
-
-	.center{
-	  text-align: center;
-	  font-family: cursive;
-	  text-decoration: underline;
-	}
-</style>
-</head>
+	<link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet"
+></head>
 <body class="app flex-row align-items-center">
 	<div class="container">
 		<div class="row justify-content-center"> 
@@ -25,35 +14,34 @@
 				<div class="card-group">
 					<div class="card p-4">
 						<div class="card-body bd">
-							<form method="GET" action="">
-							<h1 class="center">Login</h1>
-							<p class="text-muted">Log In to your account</p>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text">
-                      					<i class="icon-user"></i>
-                    				</span>
+							<form method="POST" action="login.php">
+								<h1 class="center">Login</h1>
+								<p class="text-muted">Log In to your account</p>
+								<div class="input-group mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											<i class="icon-user"></i>
+										</span>
+									</div>
+									<input id="email" name="email" class="form-control" type="text" placeholder="Email">
 								</div>
-								<input id="email" name="email" class="form-control" type="text" placeholder="Email">
-
-							</div>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-                    				<span class="input-group-text">
-                      					<i class="icon-lock"></i>
-                    				</span>
-                  				</div>
-                  				<input id="password" name="password" class="form-control" type="password" placeholder="Password">
-							</div>
-							<div class="row">
-                  				<div class="col-6">
-                    				<button id="login" name="login" class="btn btn-primary px-4" type="submit">Login</button>
-                  				</div>
-                  				<div class="col-6 text-right">
-                    				<button id="forgot" name="forgot" class="btn btn-link px-0" type="submit">Forgot password?</button>
-                  				</div>
-                			</div>
-                			</form>
+								<div class="input-group mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											<i class="icon-lock"></i>
+										</span>
+									</div>
+									<input id="password" name="password" class="form-control" type="password" placeholder="Password">
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<button id="login" name="login" class="btn btn-primary px-4" type="submit">Login</button>
+									</div>
+									<div class="col-6 text-right">
+										<button id="forgot" name="forgot" class="btn btn-link px-0" type="submit">Forgot password?</button>
+									</div>
+								</div>
+							</form>
 						</div>	
 					</div>
 				</div>
@@ -62,36 +50,34 @@
 	</div>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
-	<!-- <script type="text/javascript">
+	<script type="text/javascript">
 		$(document).ready(function(e) {
-    		$('#login').click(function() {
-    			var emailBox=$("#email");
-        		var sEmail = $('#email').val();
-        		if ($.trim(sEmail).length == 0) {
-            	alert('Please enter valid email address');
-            	e.preventDefault();
-        	}
-        if (validateEmail(sEmail)) {
-            alert('Email is valid');
-        }
-        else {
-        	emailBox.prev().text("Invalid E-mail").show();
-            //alert('Invalid Email Address');
-            e.preventDefault();
-        }
-    });
-});
-
-function validateEmail(sEmail) {
-    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    if (filter.test(sEmail)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-	</script> -->
-	
+			$('#login').click(function() {
+				var emailBox=$("#email");
+				var sEmail = $('#email').val();
+				if ($.trim(sEmail).length == 0) {
+					alert('Please enter valid email address');
+					e.preventDefault();
+				}
+				if (validateEmail(sEmail)) {
+					alert('Email is valid');
+				}
+				else{
+					alert('Invalid Email Address');
+            		e.preventDefault();
+        		}
+    		});
+		});
+		
+		function validateEmail(sEmail) {
+			var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+			if (filter.test(sEmail)) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	</script>	
 </body>
 </html>

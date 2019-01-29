@@ -13,7 +13,6 @@ if(isset($_POST['login']))
 			if(($row['EMAIL']==$email) && ($row['PASSWORD']==$password))
 			{
 				header("location: index.php");
-
 			}
 		}		 
 	}

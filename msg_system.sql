@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2019 at 03:29 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Jan 29, 2019 at 10:57 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -26,6 +26,8 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `login` (IN `EMAIL` VARCHAR(50), IN `PASSWORD` VARCHAR(50))  SELECT EMAIL,PASSWORD from usr_rgstraton where BINARY usr_rgstraton.EMAIL = EMAIL and BINARY usr_rgstraton.PASSWORD = PASSWORD$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `register` (IN `USR_ID` VARCHAR(200), IN `FST_NAME` VARCHAR(200), IN `LST_NAME` VARCHAR(200), IN `GENDER` VARCHAR(200), IN `USR_NAME` VARCHAR(200), IN `EMAIL` VARCHAR(200), IN `PASSWORD` VARCHAR(200))  NO SQL
 insert into usr_rgstraton(USR_ID,FST_NAME,LST_NAME,GENDER,USR_NAME,EMAIL,PASSWORD) VALUES(USR_ID,FST_NAME,LST_NAME,GENDER,USR_NAME,EMAIL,PASSWORD)$$
 
@@ -61,7 +63,11 @@ INSERT INTO `usr_rgstraton` (`PK_REG_ID`, `USR_ID`, `FST_NAME`, `LST_NAME`, `GEN
 (1, 'A001', 'Rajat', 'Pandey', 'male', 'rajat', 'pandey.rajat05@gmail.com', '123456', '2019-01-28 09:16:08', '0000-00-00 00:00:00'),
 (2, 'B009', 'Bonie', 'Sachdev', 'Male', 'bony09', 'bony@gmail.com', '123', '2019-01-28 13:58:23', '0000-00-00 00:00:00'),
 (3, 'B0009', 'bony', 'sachdev', 'Male', 'bony09', 'bony@gmail.com', '123', '2019-01-28 14:20:17', '0000-00-00 00:00:00'),
-(4, 'C009', 'ABC', 'XYZ', 'Male', 'abcde', 'abc@gmail.com', '123', '2019-01-28 14:28:36', '0000-00-00 00:00:00');
+(4, 'C009', 'ABC', 'XYZ', 'Male', 'abcde', 'abc@gmail.com', '123', '2019-01-28 14:28:36', '0000-00-00 00:00:00'),
+(5, 'AA01', 'Akshay', 'Mistry', 'Male', 'akshay16', 'mistryakshay16@gmail.com', '123456', '2019-01-28 14:48:41', '0000-00-00 00:00:00'),
+(6, 'A0004', 'Ajay', 'Mistry', 'Male', 'ajay9769', 'ajay39@gmail.com', '123456', '2019-01-28 15:47:53', '0000-00-00 00:00:00'),
+(7, 'AA0001', 'Shashi', 'Soni', 'Male', 'shashisoni', 'shashi@gmail.com', '123456', '2019-01-29 03:55:11', '0000-00-00 00:00:00'),
+(8, 'AA0002', 'Rishabh', 'Pandey', 'Male', 'Rishabh', 'pandey.rajat05@gmail.com', '123456', '2019-01-29 08:27:59', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -81,7 +87,7 @@ ALTER TABLE `usr_rgstraton`
 -- AUTO_INCREMENT for table `usr_rgstraton`
 --
 ALTER TABLE `usr_rgstraton`
-  MODIFY `PK_REG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `PK_REG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -4,15 +4,16 @@ if(isset($_POST['login']))
 {
   $email=$_POST['email'];
   $password=$_POST['password'];
-  $query=mysqli_query($conn,"call login('$email','$password')");
+  $username=$_POST['email'];
+  $query=mysqli_query($conn,"call login('$email','$password','$username')");
 	$result = $query;
 	if ($result->num_rows > 0)
 	{
 		while($row = $result->fetch_assoc())
 		{
-			if(($row['EMAIL']==$email) && ($row['PASSWORD']==$password))
+			if(($row['USR_NAME']==$username) OR ($row['EMAIL']==$email) && ($row['PASSWORD']==$password))
 			{
-				header("location: index.php");
+				header("location: message_page.php");
 			}
 		}		 
 	}
@@ -28,7 +29,6 @@ if(isset($_POST['login']))
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<link href="css/style.css" rel="stylesheet">
-	<link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
 </head>
 <body class="app flex-row align-items-center">
 	<div class="container">
@@ -46,7 +46,7 @@ if(isset($_POST['login']))
 											<i class="icon-user"></i>
 										</span>
 									</div>
-									<input id="email" name="email" class="form-control" type="text" placeholder="Email">
+									<input id="email" name="email" class="form-control" type="text" placeholder="Email or Username">
 								</div>
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
@@ -70,37 +70,6 @@ if(isset($_POST['login']))
 				</div>
 			</div>
 		</div>
-	</div>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(e) {
-			$('#login').click(function() {
-				var emailBox=$("#email");
-				var sEmail = $('#email').val();
-				if ($.trim(sEmail).length == 0) {
-					alert('Please enter valid email address');
-					e.preventDefault();
-				}
-				if (validateEmail(sEmail)) {
-					alert('Email is valid');
-				}
-				else{
-					alert('Invalid Email Address');
-            		e.preventDefault();
-        		}
-    		});
-		});
-		
-		function validateEmail(sEmail) {
-			var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-			if (filter.test(sEmail)) {
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
-	</script>	
+	</div>	
 </body>
 </html>

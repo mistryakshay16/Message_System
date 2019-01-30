@@ -1,4 +1,5 @@
 <?php
+include 'sidebar.php';
 include ('connection.php');
 
 if (isset($_POST['submit'])) {
@@ -13,7 +14,8 @@ if (isset($_POST['submit'])) {
   
   if($query)
   {  
-    header("location:login.php");
+  	echo "<script>alert('Registered');</script>";
+    // header("location:login.php");
   }
   else
   {
@@ -24,17 +26,25 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Registration Form</title>
-    <link href="css/style.css" rel="stylesheet">
+	<title></title>
 </head>
-<body class="app flex-row align-items-center">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card mx-4">
-                    <div class="card-body p-4">
-                        <form method="POST" class="RegistrationForm" name="RegistrationForm" id="RegistrationForm">
+<body>
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Add User</li>
+			</ol>
+		</div><!--/.row-->
+
+		<div class="panel panel-default chat">
+			<div class="panel-heading">
+				Add User
+			</div>
+			<div class="panel-footer">
+				<form method="POST" class="RegistrationForm" name="RegistrationForm" id="RegistrationForm">
                             <h1 class="heading">Register</h1>
                             <p class="text-muted">Create your account</p>
                             <div class="input-group mb-3">
@@ -73,22 +83,21 @@ if (isset($_POST['submit'])) {
                             </div>
                             <input class="btn btn-block btn-success" type="submit" value="submit" name="submit" id="submit">
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="js/jquery.js" type="text/javascript"></script>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/jquery.validate.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
     <script src="js/additional-methods.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#RegistrationForm').validate({
-                rules: {
+	<script type="text/javascript">
+        $(document).ready(function () {
+            $('#adduserform').validate({
+                    rules: {
                     USR_ID: {
                         required: true,
                         maxlength: 6
-                    },
+                    }, 
                     FST_NAME: {
                         required: true
                     },

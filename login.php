@@ -37,7 +37,7 @@ if(isset($_POST['login']))
 				<div class="card-group">
 					<div class="card p-4">
 						<div class="card-body bd">
-							<form method="POST" action="login.php">
+							<form method="POST" action="login.php" id="loginform">
 								<h1 class="center">Login</h1>
 								<p class="text-muted">Log In to your account</p>
 								<div class="input-group mb-3">
@@ -70,6 +70,24 @@ if(isset($_POST['login']))
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
+	<script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/jquery.validate.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+    <script src="js/additional-methods.js" type="text/javascript"></script>
+	<script type="text/javascript">
+        $(document).ready(function () {
+            $('#loginform').validate({
+                    rules: {
+                    email: {
+                        required: true,
+                    }, 
+                    password: {
+                        required: true
+                    }
+                }
+            });
+        });
+    </script>	
 </body>
 </html>

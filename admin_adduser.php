@@ -113,9 +113,6 @@ if (isset($_POST['submit'])) {
                     LST_NAME: {
                         required: true
                     },
-                    GENDER: {
-                        required: true
-                    },
                     USR_NAME: {
                         required: true,
                         maxlength: 10
@@ -135,6 +132,36 @@ if (isset($_POST['submit'])) {
                         minlength: 6,
                         equalTo: "#password"
                     }
+                },
+                messages: {
+                	USR_ID: {
+                		required: "User ID is mandatory",
+                		maxlength: "User ID cannot exceed 6 characters"
+                	},
+                	FST_NAME: {
+                        required: "First name is mandatory"
+                    },
+                    LST_NAME: {
+                        required: "Last name is madatory"
+                    },
+                    USR_NAME: {
+                        required: "User name is mandatory",
+                        maxlength: "User name cannot exceed 10 characters"
+                    },
+                    EMAIL: {
+                        required: "Email is mandatory",
+                        email: "Please enter valid email"
+                    },
+                    PASSWORD: {
+                        required: "Password is mandatory",
+                        minlength: "Password should be atleast 6 characters"
+                    },
+                    Confirm_password: {
+                        required: true,
+                        minlength: "Password should be atleast 6 characters",
+                        equalTo: "#password"
+                    }
+
                 }
             });
         });

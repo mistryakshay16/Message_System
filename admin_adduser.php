@@ -27,7 +27,9 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Messege System</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
@@ -38,8 +40,7 @@ if (isset($_POST['submit'])) {
 				</a></li>
 				<li class="active">Add User</li>
 			</ol>
-		</div><!--/.row-->
-
+		</div>
 		<div class="panel panel-default chat">
 			<div class="panel-heading">
 				Add User
@@ -48,58 +49,55 @@ if (isset($_POST['submit'])) {
 				<form  method="POST" name="adduserform" id="adduserform" action="">
 					<div class="form-group">
 						<label>User Id</label>
-						<input class="form-control" placeholder="User Id" name="USR_ID">
+						<input id="userid" name="USR_ID" class="form-control" placeholder="User Id">
 					</div>
 					<div class="form-group">
 						<label>First Name</label>
-						<input class="form-control" placeholder="First Name" name="FST_NAME">
+						<input id="fstname" name="FST_NAME" class="form-control" placeholder="First Name">
 					</div>
 					<div class="form-group">
 						<label>Last Name</label>
-						<input class="form-control" placeholder="Last Name" name="LST_NAME">
+						<input id="lstname" name="LST_NAME" class="form-control" placeholder="Last Name">
 					</div>
 					<div class="form-group">
 						<label>Gender</label>
 						<label>
-							<input type="radio" id="GENDER" value="Male" name="GENDER" checked>Male
+							<input type="radio" id="gender_1" name="GENDER" value="Male"  checked>Male
 						</label>
 						<label>
-							<input type="radio" id="GENDER" value="Female" name="GENDER">Female
+							<input type="radio" id="gender_2" name="GENDER" value="Female">Female
 						</label>						
 					</div>
 					<div class="form-group">
 						<label>User Name</label>
-						<input class="form-control" placeholder="User Name" name="USR_NAME">
+						<input id="usrname" name="USR_NAME" class="form-control" placeholder="User Name">
 					</div>
 					<div class="form-group">
 						<label>Role</label>
 						<select class="form-control" name="ROLE">
-							<option name="ROLE">Admin</option>
-							<option name="ROLE">User</option>
+							<option id="role" name="ROLE">Admin</option>
+							<option id="role" name="ROLE">User</option>
 						</select>
 					</div>
 					<div class="form-group">
 						<label>Email Id</label>
-						<input class="form-control" placeholder="Email" name="EMAIL">
+						<input id="email" name="EMAIL" class="form-control" placeholder="Email">
 					</div>
 
 					<div class="form-group">
 						<label>Password</label>
-						<input type="password" class="form-control" placeholder="Password" name="PASSWORD">
+						<input id="password" name="PASSWORD" type="password" class="form-control" placeholder="Password">
 					</div>
 					<div class="form-group">
 						<label>Re-Enter Password</label>
-						<input type="password" class="form-control" placeholder="Re-Enter Password" name="Confirm_password">
+						<input id="cpassword" name="Confirm_password" type="password" class="form-control" placeholder="Re-Enter Password">
 					</div>
-					<button type="submit" class="btn btn-primary" name="submit">Submit</button>
-					<button type="reset" class="btn btn-default">Cancel</button>
+					<button id="submit" name="submit" type="submit" class="btn btn-primary">Submit</button>
 				</form>
 			</div>
 		</div>
 	</div>
-	<script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/jquery.validate.js" type="text/javascript"></script>
-    <script src="js/custom.js" type="text/javascript"></script>
     <script src="js/additional-methods.js" type="text/javascript"></script>
 	<script type="text/javascript">
         $(document).ready(function () {

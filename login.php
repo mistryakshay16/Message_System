@@ -2,10 +2,10 @@
 include('connection.php');
 if(isset($_POST['login']))
 {
-  $email=$_POST['email'];
-  $password=$_POST['password'];
-  $username=$_POST['email'];
-  $query=mysqli_query($conn,"call login('$email','$password','$username')");
+	$email=$_POST['email'];
+	$password=$_POST['password'];
+	$username=$_POST['email'];
+	$query=mysqli_query($conn,"call login('$email','$password','$username')");
 	$result = $query;
 	if ($result->num_rows > 0)
 	{
@@ -25,7 +25,7 @@ if(isset($_POST['login']))
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Message System-Login</title>
+	<title>Message System</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<link href="css/style.css" rel="stylesheet">
@@ -73,7 +73,6 @@ if(isset($_POST['login']))
 	</div>
 	<script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/jquery.validate.js" type="text/javascript"></script>
-    <script src="js/custom.js" type="text/javascript"></script>
     <script src="js/additional-methods.js" type="text/javascript"></script>
 	<script type="text/javascript">
         $(document).ready(function () {

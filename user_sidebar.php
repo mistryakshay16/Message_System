@@ -36,7 +36,7 @@
         <div class="divider"></div>
 
         <ul class="nav menu">
-            <li><a href="message_page.php"><em class="fa fa-calendar">&nbsp;</em> New Message</a></li>
+            <li><a href="message_page.php"><em class="fa fa-calendar">&nbsp;</em>New Message</a></li>
             <li><a href="login.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
         </ul>
     </div>

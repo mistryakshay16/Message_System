@@ -32,7 +32,7 @@ include ('connection.php');
 							<thead>
 								<tr>
 									<th>User Name</th>
-									<th>Fisrt Name</th>
+									<th>First Name</th>
 									<th>Last Name</th>
 									<th>Email</th>
 									<th>Show</th>
@@ -52,7 +52,9 @@ include ('connection.php');
 									<td>".$result['FST_NAME']."</td>
 									<td>".$result['LST_NAME']."</td>
 									<td>".$result['EMAIL']."</td>
-									<td><button>Show</button></td>
+									<form action='admin_msg_view.php?user=" . $result['EMAIL'] . "' method='POST'>
+									<td><button type='submit'>Show</button></td>
+									</form>
 									<td><button>Delete</button></td>
 									</tr>";
 								}

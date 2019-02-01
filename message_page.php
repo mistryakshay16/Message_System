@@ -1,5 +1,5 @@
 <?php
-include 'user_sidebar.php';
+include 'usersidebar.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@ include 'user_sidebar.php';
           Chat
         <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
         </div>
-        <div class="panel-body" style="height:525px;">
+        <div class="panel-body" style="height:400px;">
             <?php
             include "connection.php";
             $q1 = "SELECT * FROM message";
@@ -25,8 +25,9 @@ include 'user_sidebar.php';
                 $chat = $row['MESSAGE'];
                 $time = $row['CREATED_AT'];
             
-                echo "<p>".$chat." " .$time."</p>";
-            }
+                echo "<p class='well'>".$chat." "." "."<i style='float:right;'>".$time."</i>"."</p>";
+
+        }
             ?>
         </div>
 					<div class="panel-footer">

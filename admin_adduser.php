@@ -157,9 +157,9 @@ if (isset($_POST['submit'])) {
                         minlength: "Password should be atleast 6 characters"
                     },
                     Confirm_password: {
-                        required: true,
+                        required: "Password is mandatory",
                         minlength: "Password should be atleast 6 characters",
-                        equalTo: "#password"
+                        equalTo: "Both password should be same"
                     }
 
                 }

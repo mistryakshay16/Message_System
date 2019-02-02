@@ -19,10 +19,16 @@ include "connection.php";
                 Chat
                 <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
             </div>
+            <br>
+            <form id="messageform" action="into_db.php" method="post">
+                <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-md" placeholder="Enter a user name" name="USR_NAME" id="USR_NAME" value="<?php echo $_SESSION['USR_NAME']; ?>" readonly>
+                </div>
             <div class="panel-body" style="height:400px;">
                 <?php
                     include "connection.php";
-                    $q1 = "SELECT * FROM message";
+                    $user = $_SESSION['USR_NAME'];
+                    $q1 = "SELECT * FROM message WHERE USR_NAME='$user'";
                     $f1 = mysqli_query($conn,$q1);
                     while($row = mysqli_fetch_assoc($f1)){
                     $chat = $row['MESSAGE'];
@@ -32,7 +38,6 @@ include "connection.php";
                 ?>
             </div>
 			<div class="panel-footer">
-                <form id="messageform" action="into_db.php" method="post">
 					<div class="input-group">
 				        <input id="btn-input" type="text" class="form-control input-md" placeholder="Type your message here..." name="msg" id="msg"/><span class="input-group-btn">
 				        <input type="submit" class="btn btn-primary btn-md" id="send" name="send" value="send">

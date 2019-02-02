@@ -39,8 +39,7 @@ include ('connection.php');
 							<tbody>
 								<?php
 								include "connection.php";
-
-								$query = mysqli_query($conn, "SELECT PK_MSG_ID,MESSAGE,CREATED_AT FROM message");
+								$query = mysqli_query($conn, "SELECT * FROM message");
 
 								while ($result = mysqli_fetch_array($query)) {
                     

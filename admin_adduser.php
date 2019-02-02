@@ -113,6 +113,9 @@ if (isset($_POST['submit'])) {
                     LST_NAME: {
                         required: true
                     },
+                    GENDER: {
+                        required: true
+                    },
                     USR_NAME: {
                         required: true,
                         maxlength: 10

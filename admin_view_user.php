@@ -27,11 +27,12 @@ include ('connection.php');
 				View User
 			</div>
 			<div class="panel-footer">
-				<form  method="POST" name="adduserform" id="adduserform" action="">
+				<form  method="POST" name="adduserform" id="adduserform" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 					<div class="table-responsive"> 
 						<table id="example" class="display">
 							<thead>
 								<tr>
+									<th>Serial No.</th>
 									<th>User Name</th>
 									<th>First Name</th>
 									<th>Last Name</th>
@@ -44,18 +45,17 @@ include ('connection.php');
 								<?php
 								include "connection.php";
 
-								$query = mysqli_query($conn, "SELECT USR_NAME,FST_NAME,LST_NAME,EMAIL FROM usr_rgstraton");
+								$query = mysqli_query($conn, "SELECT PK_REG_ID,USR_NAME,FST_NAME,LST_NAME,EMAIL FROM usr_rgstraton");
 
 								while ($result = mysqli_fetch_array($query)) {
                     
 									echo "<tr> 
+									<td>".$result['PK_REG_ID']."></td>
 									<td>".$result['USR_NAME']."</td>
 									<td>".$result['FST_NAME']."</td>
 									<td>".$result['LST_NAME']."</td>
 									<td>".$result['EMAIL']."</td>
-									<form action='view_message.php?user=" . $result['EMAIL'] . "' method='POST'>
-									<td><button type='submit'>Show</button></td>
-									</form>
+									<td><a href=\"view_message.php?user=".$result['PK_REG_ID']."\">Show</a></td>
 									<td><button>Delete</button></td>
 									</tr>";
 								}

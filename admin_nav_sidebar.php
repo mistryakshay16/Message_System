@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +30,16 @@
 				<img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
 			</div>
 			<div class="profile-usertitle">
-				<div class="profile-usertitle-name">Username</div>
+				<?php
+                if(!isset($_SESSION['USR_NAME'])) {
+                    header("location: login.php");
+                }elseif (isset($_SESSION['USR_NAME']) && $_SESSION['ROLE'] == 'User') {
+                	header("location: message_pagee.php");
+                }
+                else{
+                    echo $_SESSION['USR_NAME'];
+                }
+                ?>
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -35,7 +47,7 @@
 			<ul class="nav menu">
 				<li><a href="admin_adduser.php"><em class="fa fa-dashboard">&nbsp;</em> Add User</a></li>
 				<li><a href="admin_view_user.php"><em class="fa fa-dashboard">&nbsp;</em> View User</a></li>
-				<li><a href="login.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+				<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 			</ul>
 	</div>
 	<script src="js/jquery-1.11.1.min.js"></script>

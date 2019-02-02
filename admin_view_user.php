@@ -50,7 +50,7 @@ include ('connection.php');
 								while ($result = mysqli_fetch_array($query)) {
                     
 									echo "<tr> 
-									<td>".$result['PK_REG_ID']."></td>
+									<td>".$result['PK_REG_ID']."</td>
 									<td>".$result['USR_NAME']."</td>
 									<td>".$result['FST_NAME']."</td>
 									<td>".$result['LST_NAME']."</td>

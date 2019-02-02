@@ -14,16 +14,16 @@ include "connection.php";
 		<div class="row">
     			<div class="breadcrumb"></div>
     	</div>
+        From:
         <div class="panel panel-default chat">
             <div class="panel-heading">
-                Chat
-                <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
-            </div>
-            <br>
-            <form id="messageform" action="into_db.php" method="post">
+               <form id="messageform" action="into_db.php" method="post">
                 <div class="input-group">
                         <input id="btn-input" type="text" class="form-control input-md" placeholder="Enter a user name" name="USR_NAME" id="USR_NAME" value="<?php echo $_SESSION['USR_NAME']; ?>" readonly>
                 </div>
+                <span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span>
+            </div>
+            <br>
             <div class="panel-body" style="height:400px;">
                 <?php
                     include "connection.php";

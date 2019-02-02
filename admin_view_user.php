@@ -56,7 +56,7 @@ include ('connection.php');
 									<td>".$result['LST_NAME']."</td>
 									<td>".$result['EMAIL']."</td>
 									<td><a href=\"view_message.php?user=".$result['USR_NAME']."\">Show</a></td>
-									<td><button>Delete</button></td>
+									<td><a href=\"#\">Delete</a></td>
 									</tr>";
 								}
 								?>

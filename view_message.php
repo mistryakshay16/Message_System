@@ -48,8 +48,8 @@ include ('connection.php');
 									<td>".$result['PK_MSG_ID']."</td>
 									<td>".$result['MESSAGE']."</td>
 									<td>".$result['CREATED_AT']."</td>
-									<td>Edit</td>
-									<td>Delete</td>
+									<td><a href=\"#\">Edit</a></td>
+									<td><a href=\"#\">Delete</a></td>
 									</tr>";
 								}
 								?>

@@ -39,7 +39,8 @@ include ('connection.php');
 							<tbody>
 								<?php
 								include "connection.php";
-								$query = mysqli_query($conn, "SELECT * FROM message");
+								$val = $_GET['user'];
+								$query = mysqli_query($conn, "SELECT * FROM message WHERE USR_NAME='$val'");
 
 								while ($result = mysqli_fetch_array($query)) {
                     

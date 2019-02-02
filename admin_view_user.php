@@ -53,7 +53,7 @@ include ('connection.php');
 									<td>".$result['FST_NAME']."</td>
 									<td>".$result['LST_NAME']."</td>
 									<td>".$result['EMAIL']."</td>
-									<form action='admin_msg_view.php?user=" . $result['EMAIL'] . "' method='POST'>
+									<form action='view_message.php?user=" . $result['EMAIL'] . "' method='POST'>
 									<td><button type='submit'>Show</button></td>
 									</form>
 									<td><button>Delete</button></td>

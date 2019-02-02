@@ -11,12 +11,9 @@ if(isset($_POST['login']))
 	{
 		while($row = $result->fetch_assoc())
 		{
-			if((($row['USR_NAME']==$username) OR ($row['EMAIL']==$email) && ($row['PASSWORD']==$password)) && ($row['ROLE']=='User'))
+			if(($row['USR_NAME']==$username) OR ($row['EMAIL']==$email) && ($row['PASSWORD']==$password))
 			{
-				header("location: message_page.php?user=".$row['USR_NAME']."");
-			}
-			else{
-				header("location: admin_dashboard.php");
+				header("location: message_page.php");
 			}
 		}		 
 	}
